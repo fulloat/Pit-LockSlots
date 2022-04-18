@@ -132,7 +132,7 @@ public class Utils {
     /**
      * Whether the player is on skyblock.
      */
-    private boolean onSkyblock;
+    private boolean onSkyblock = true;
 
     /**
      * The player's current location in Skyblock
@@ -222,19 +222,21 @@ public class Utils {
      * @return {@code true} if the player is on Hypixel, {@code false} otherwise
      */
     public boolean isOnHypixel() {
-        EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
-        if (player == null) {
-            return false;
-        }
-        String brand = player.getClientBrand();
-        if (brand != null) {
-            for (Pattern p : main.getOnlineData().getHypixelBrands()) {
-                if (p.matcher(brand).matches()) {
-                    return true;
-                }
-            }
-        }
-        return false;
+//        EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
+//        if (player == null) {
+//            return false;
+//        }
+//        String brand = player.getClientBrand();
+//        if (brand != null) {
+//            for (Pattern p : main.getOnlineData().getHypixelBrands()) {
+//                if (p.matcher(brand).matches()) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+
+        return true;
     }
 
     public void parseSidebar() {
@@ -247,7 +249,7 @@ public class Utils {
         boolean foundInDungeon = false;
         boolean foundSlayerQuest = false;
         boolean foundBossAlive = false;
-        boolean foundSkyblockTitle = false;
+        boolean foundSkyblockTitle = true;
 
         // TODO: This can be optimized more.
         if (isOnHypixel() && ScoreboardManager.hasScoreboard()) {
